@@ -1,0 +1,82 @@
+:root {
+  --bg: #f3f5f8;
+  --card: #ffffff;
+  --ink: #1b2230;
+  --muted: #566070;
+  --line: #dbe0e7;
+  --navy: #1e3a5f;
+  --navy-tint: #e6edf6;
+  --urgent: #b42318;
+  --urgent-bg: #fde8e6;
+  --high: #9a5a00;
+  --high-bg: #fdf0d9;
+  --normal: #1f6f43;
+  --normal-bg: #e3f4ea;
+  font-family: Inter, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  color: var(--ink);
+  background: var(--bg);
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; }
+
+.app { max-width: 1080px; margin: 0 auto; padding: 24px 16px 40px; }
+
+.top { display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
+.brand { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 20px; color: var(--navy); }
+.tag { margin: 0; color: var(--muted); font-size: 14px; }
+
+.layout { display: grid; grid-template-columns: 360px 1fr; gap: 20px; align-items: start; }
+@media (max-width: 820px) { .layout { grid-template-columns: 1fr; } }
+
+.card { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 20px; }
+h1, h2 { font-size: 17px; margin: 0 0 14px; }
+
+.row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.field { display: flex; flex-direction: column; gap: 6px; margin-bottom: 14px; font-size: 13px; font-weight: 600; min-width: 0; }
+.field input, .field select, .field textarea { width: 100%; }
+input, select, textarea {
+  font: inherit; font-weight: 400; font-size: 14px; color: var(--ink);
+  border: 1px solid var(--line); border-radius: 6px; padding: 9px 10px; background: #fff;
+}
+textarea { resize: vertical; }
+input:focus-visible, select:focus-visible, textarea:focus-visible, button:focus-visible {
+  outline: 2px solid var(--navy); outline-offset: 2px;
+}
+.has-error input, .has-error textarea { border-color: var(--urgent); }
+.error { color: var(--urgent); font-weight: 500; }
+.check { display: flex; gap: 8px; align-items: center; font-size: 13px; margin-bottom: 16px; }
+
+.primary {
+  width: 100%; font: inherit; font-weight: 600; font-size: 14px; color: #fff; background: var(--navy);
+  border: 0; border-radius: 6px; padding: 11px; cursor: pointer;
+}
+.primary:disabled { opacity: .6; cursor: wait; }
+.notice { min-height: 18px; margin: 10px 0 0; font-size: 13px; color: var(--normal); }
+
+.list-head { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; margin-bottom: 8px; }
+.list-head h2 { margin: 0; }
+.tabs { display: flex; gap: 4px; flex-wrap: wrap; }
+.tab { font: inherit; font-size: 13px; background: none; border: 1px solid var(--line); border-radius: 999px; padding: 5px 11px; cursor: pointer; color: var(--muted); }
+.tab.active { background: var(--navy-tint); border-color: var(--navy); color: var(--navy); font-weight: 600; }
+.count { opacity: .7; }
+
+.requests { list-style: none; margin: 0; padding: 0; }
+.request { border-top: 1px solid var(--line); padding: 14px 0; }
+.request:first-child { border-top: 0; }
+.req-top { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; font-size: 14px; }
+.meta { color: var(--muted); font-size: 12px; }
+.request p { margin: 8px 0 0; font-size: 14px; line-height: 1.5; }
+.reply { background: var(--bg); border-radius: 6px; padding: 8px 10px; color: var(--muted); }
+.reply span { font-weight: 600; color: var(--ink); }
+.req-actions { display: flex; justify-content: space-between; align-items: center; margin-top: 10px; font-size: 13px; }
+.req-actions select { padding: 5px 8px; font-size: 13px; }
+.link { font: inherit; font-size: 13px; background: none; border: 0; color: var(--urgent); cursor: pointer; padding: 4px; }
+
+.badge { text-transform: capitalize; font-size: 12px; font-weight: 600; padding: 2px 9px; border-radius: 999px; }
+.badge.urgent { color: var(--urgent); background: var(--urgent-bg); }
+.badge.high { color: var(--high); background: var(--high-bg); }
+.badge.normal { color: var(--normal); background: var(--normal-bg); }
+
+.empty { color: var(--muted); font-size: 14px; padding: 20px 0; }
+.foot { text-align: center; color: var(--muted); font-size: 12px; margin-top: 28px; }
